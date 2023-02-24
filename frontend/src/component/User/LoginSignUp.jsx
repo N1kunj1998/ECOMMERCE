@@ -12,7 +12,6 @@ import { useAlert } from "react-alert";
 const LoginSignUp = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
-
   const history = useNavigate();
 
   const { error, loading, isAuthenticated } = useSelector(
