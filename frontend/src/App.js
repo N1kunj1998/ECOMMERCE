@@ -16,6 +16,10 @@ import { useSelector } from 'react-redux';
 import Profile from "./component/User/Profile.jsx";
 import ProtectedRoute from './component/Route/ProtectedRoute';
 import UpdateProfile from "./component/User/UpdateProfile.js";
+import UpdatePassword from "./component/User/UpdatePassword.js";
+import ForgotPassword from "./component/User/ForgotPassword.js";
+import ResetPassword from "./component/User/ResetPassword.jsx";
+
 function App() {
 
   const {isAuthenticated, user} = useSelector(state => state.user);
@@ -38,12 +42,14 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='/account' element={<ProtectedRoute><Profile/></ProtectedRoute > } />
         <Route path='/me/update' element={<ProtectedRoute><UpdateProfile/></ProtectedRoute>} />
+        <Route path='/password/update' element={<ProtectedRoute><UpdatePassword/></ProtectedRoute>} />
+        <Route path='/password/forgot' element={<ForgotPassword/>} />
+        <Route path='/password/reset/:token' element={<ResetPassword/>} />
         <Route path='/product/:id' element={<ProductDetails/>} />
         <Route path='/products' element={<Products/>} />
         <Route path='/products/:keyword' element={<Products/>} />
         <Route path='/Search' element={<Search/>} />
         <Route path='/login' element={<LoginSignUp/>} />
-
       </Routes>
        <Footer/>
     </Router>
