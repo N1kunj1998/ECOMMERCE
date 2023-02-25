@@ -1,7 +1,8 @@
 import React from 'react'
 import {ReactNavbar} from "overlay-navbar";
 import logo from "../../../images/logo.png";
-import {FaUserAlt, FaSearch, FaShoppingCart} from "react-icons/fa";
+import {FaUserAlt, FaSearch, FaShoppingBag} from "react-icons/fa";
+// import  {AiOutlineShoppingCart} from "react-icons/ai";
 
 const options = {
     burgerColorHover : "#a62d24",
@@ -31,12 +32,13 @@ const options = {
     link2Margin : "1vmax",
     link3Margin : "0",
     link4Margin : "1vmax",
+    // cartIcon : true,
+    CartIconElmenet : FaShoppingBag,
     profileIcon : true,
     ProfileIconElement : FaUserAlt,
     searchIcon : true,
     SearchIconElement : FaSearch,
-    // cartIcon : true,
-    CartIconElemnet : FaShoppingCart,
+    
     profileIconUrl: "/login",
     profileIconColor : "rgba(35, 35, 35, 0.8)",
     searchIconColor : "rgba(35, 35, 35, 0.8)",
