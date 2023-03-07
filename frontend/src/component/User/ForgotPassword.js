@@ -37,7 +37,7 @@ const ForgotPassword = () => {
         if(message) {
           alert.success(message);
         }
-      }, [dispatch, error, message]);
+      }, [dispatch, error, message, alert]);
 
   return (
     <Fragment>

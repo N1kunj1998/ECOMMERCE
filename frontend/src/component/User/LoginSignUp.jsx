@@ -15,7 +15,7 @@ const LoginSignUp = () => {
   const history = useNavigate();
   const location = useLocation();
 
-  console.log(location.search.split("=")[1]);
+  // console.log(location.search.split("=")[1]);
 
   const { error, loading, isAuthenticated } = useSelector(
     (state) => state.user

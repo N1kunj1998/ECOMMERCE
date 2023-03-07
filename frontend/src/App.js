@@ -1,6 +1,6 @@
 import './App.css';
 import Header from "./component/layout/Header/Header.js";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import WebFont from "webfontloader";
 import React, { useState } from 'react';
 import Footer from "./component/layout/Footer/Footer.js";
@@ -27,6 +27,8 @@ import axios from "axios";
 import {Elements} from "@stripe/react-stripe-js";
 import { loadStripe } from '@stripe/stripe-js';
 import OrderSuccess from "./component/Cart/OrderSuccess.jsx";
+import MyOrders from "./component/Order/MyOrders.jsx";
+import OrderDetails from "./component/Order/OrderDetails.jsx";
 
 function App() {
 
@@ -62,8 +64,10 @@ function App() {
         <Route path='/me/update' element={<ProtectedRoute><UpdateProfile/></ProtectedRoute>} />
         <Route path='/password/update' element={<ProtectedRoute><UpdatePassword/></ProtectedRoute>} />
         <Route path='/shipping' element={<ProtectedRoute><Shipping/></ProtectedRoute>} />
-        <Route path='/order/confirm' element={<ProtectedRoute><ConfirmOrder/></ProtectedRoute>} />
         <Route path='/success' element={<ProtectedRoute><OrderSuccess/></ProtectedRoute>} />
+        <Route path='/orders' element={<ProtectedRoute><MyOrders/></ProtectedRoute>} />
+        <Route path='/order/:id' element={<ProtectedRoute><OrderDetails/></ProtectedRoute>} />
+        <Route path='/order/confirm' element={<ProtectedRoute><ConfirmOrder/></ProtectedRoute>} />
         <Route path='/process/payment' element={<Elements stripe={loadStripe(stripeApiKey)}><ProtectedRoute><Payment/></ProtectedRoute></Elements>} />
         <Route path='/password/forgot' element={<ForgotPassword/>} />
         <Route path='/password/reset/:token' element={<ResetPassword/>} />

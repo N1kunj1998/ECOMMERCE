@@ -60,7 +60,7 @@ const productSchema = new mongoose.Schema({
                 type: Number,
                 required: true,
             },
-            commnet: {
+            comment: {
                 type: String,
                 required: true
             }

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.4",
+    "@material-ui/data-grid": "^4.0.0-alpha.37",
     "@material-ui/icons": "^4.11.3",
     "@material-ui/lab": "^4.0.0-alpha.61",
     "@mui/icons-material": "^5.11.9",
@@ -26,7 +27,6 @@
     "react-icons": "^4.7.1",
     "react-js-pagination": "^3.0.3",
     "react-material-ui-carousel": "^2.3.1",
-    "react-rating-stars-component": "^2.2.0",
     "react-redux": "^8.0.5",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.8.1",

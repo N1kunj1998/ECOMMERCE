@@ -125,7 +125,7 @@ exports.createProductReview = catchAsyncErrors(
             product.reviews.forEach((rev) => {
                 if(rev.user.toString() === req.user._id.toString()){
                     rev.rating = rating,
-                    rev.commnet = comment
+                    rev.comment = comment
                 }
             })
         } else {
