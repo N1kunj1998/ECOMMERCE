@@ -29,6 +29,11 @@ import { loadStripe } from '@stripe/stripe-js';
 import OrderSuccess from "./component/Cart/OrderSuccess.jsx";
 import MyOrders from "./component/Order/MyOrders.jsx";
 import OrderDetails from "./component/Order/OrderDetails.jsx";
+import Dashboard from "./component/Admin/Dashboard.jsx";
+import ProductList from "./component/Admin/ProductList.jsx";
+import NewProduct from "./component/Admin/NewProduct";
+import UpdateProduct from "./component/Admin/UpdateProduct.jsx";
+import OrderList from "./component/Admin/OrderList.jsx";
 
 function App() {
 
@@ -68,6 +73,11 @@ function App() {
         <Route path='/orders' element={<ProtectedRoute><MyOrders/></ProtectedRoute>} />
         <Route path='/order/:id' element={<ProtectedRoute><OrderDetails/></ProtectedRoute>} />
         <Route path='/order/confirm' element={<ProtectedRoute><ConfirmOrder/></ProtectedRoute>} />
+        <Route path='/admin/dashboard' element={<ProtectedRoute isAdmin={true}><Dashboard/></ProtectedRoute>} />
+        <Route path='/admin/products' element={<ProtectedRoute isAdmin={true}><ProductList/></ProtectedRoute>} />
+        <Route path='/admin/product' element={<ProtectedRoute isAdmin={true}><NewProduct/></ProtectedRoute>} />
+        <Route path='/admin/product/:id' element={<ProtectedRoute isAdmin={true}><UpdateProduct/></ProtectedRoute>} />
+        <Route path='/admin/orders' element={<ProtectedRoute isAdmin={true}><OrderList/></ProtectedRoute>} />
         <Route path='/process/payment' element={<Elements stripe={loadStripe(stripeApiKey)}><ProtectedRoute><Payment/></ProtectedRoute></Elements>} />
         <Route path='/password/forgot' element={<ForgotPassword/>} />
         <Route path='/password/reset/:token' element={<ResetPassword/>} />

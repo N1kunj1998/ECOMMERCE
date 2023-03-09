@@ -63,6 +63,7 @@ const Payment = () => {
                 paymentData,
                 config,
             );
+            console.log(data.client_secret);
 
             const client_secret = data.client_secret;
 
@@ -83,7 +84,7 @@ const Payment = () => {
                         },
                     },
                 },
-            });
+            }).then(response => console.log(response));
 
             if(result.error) {
                 payBtn.current.disabled = false;
