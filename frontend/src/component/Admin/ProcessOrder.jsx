@@ -1,9 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./ProcessOrder.css";
-import CheckoutSteps from "../Cart/CheckoutSteps";
 import { useDispatch, useSelector } from "react-redux";
 import MetaData from "../layout/MetaData";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button, Typography } from "@material-ui/core";
 import Sidebar from "./Sidebar";
 import { useAlert } from "react-alert";
@@ -13,7 +12,6 @@ import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import { UPDATE_ORDER_RESET } from "../../constants/orderConstants";
 
 const ProcessOrder = () => {
-  const history = useNavigate();
   const dispatch = useDispatch();
     const alert = useAlert();
     const { id } = useParams();
