@@ -37,6 +37,9 @@ import OrderList from "./component/Admin/OrderList.jsx";
 import ProcessOrder from "./component/Admin/ProcessOrder.jsx";
 import UsersList from "./component/Admin/UsersList.jsx";
 import UpdateUser from "./component/Admin/UpdateUser.jsx";
+import ProductReviews from "./component/Admin/ProductReviews.jsx";
+import Contact from './component/layout/Contact/Contact';
+import About from './component/layout/About/About';
 
 function App() {
 
@@ -84,6 +87,7 @@ function App() {
         <Route path='/admin/order/:id' element={<ProtectedRoute isAdmin={true}><ProcessOrder/></ProtectedRoute>} />
         <Route path='/admin/users' element={<ProtectedRoute isAdmin={true}><UsersList/></ProtectedRoute>} />
         <Route path='/admin/user/:id' element={<ProtectedRoute isAdmin={true}><UpdateUser/></ProtectedRoute>} />
+        <Route path='/admin/reviews' element={<ProtectedRoute isAdmin={true}><ProductReviews/></ProtectedRoute>} />
         <Route path='/process/payment' element={<Elements stripe={loadStripe(stripeApiKey)}><ProtectedRoute><Payment/></ProtectedRoute></Elements>} />
         <Route path='/password/forgot' element={<ForgotPassword/>} />
         <Route path='/password/reset/:token' element={<ResetPassword/>} />
@@ -93,6 +97,8 @@ function App() {
         <Route path='/Search' element={<Search/>} />
         <Route path='/login' element={<LoginSignUp/>} />
         <Route path='/Cart' element={<Cart/>} />
+        <Route path='/contact' element={<Contact/>} />
+        <Route path='/about' element={<About/>} />
       </Routes>
        <Footer/>
     </Router>
