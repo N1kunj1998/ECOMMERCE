@@ -40,6 +40,7 @@ import UpdateUser from "./component/Admin/UpdateUser.jsx";
 import ProductReviews from "./component/Admin/ProductReviews.jsx";
 import Contact from './component/layout/Contact/Contact';
 import About from './component/layout/About/About';
+import NotFound from './component/layout/NotFound/NotFound';
 
 function App() {
 
@@ -64,6 +65,10 @@ function App() {
 
     getStripeApiKey();
   }, []);
+
+  window.addEventListener("contextmenu", (e) => {
+    e.preventDefault()
+  });
 
   return (
     <Router>
@@ -99,6 +104,7 @@ function App() {
         <Route path='/Cart' element={<Cart/>} />
         <Route path='/contact' element={<Contact/>} />
         <Route path='/about' element={<About/>} />
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
        <Footer/>
     </Router>
