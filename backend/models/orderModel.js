@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema({
             type: String,
             require: true
         },
-        city: {
+        state: {
             type: String,
             require: true
         },
@@ -18,7 +18,7 @@ const orderSchema = new mongoose.Schema({
             type: String,
             require: true
         },
-        pincode: {
+        pinCode: {
             type: Number,
             require: true
         },
