@@ -100,10 +100,12 @@ exports.updateOrder = catchAsyncErrors(
             return next(new ErrorHandler("You have delivered this order", 400));
         }
 
-        order.orderItems.forEach(async(ordr) => {
-            await updateStock(ordr.product, ordr.quantity);
-        });
-
+        if(req.body.status === "Shipped") {
+            order.orderItems.forEach(async(ordr) => {
+                await updateStock(ordr.product, ordr.quantity);
+            });
+        }
+        
         order.orderStatus = req.body.status;
         if(req.body.status === "Delivered") {
             order.deliveredAt = Date.now();
@@ -121,6 +123,7 @@ exports.updateOrder = catchAsyncErrors(
 
 async function updateStock(id, quantity){
     const product = await Product.findById(id);
+
 
     product.Stock -= quantity;
 

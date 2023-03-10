@@ -21,7 +21,7 @@ const ProductList = () => {
 
   const {error: deleteError, isDeleted } = useSelector((state) => state.product);
 
-  const deleteProductHandle = (id) => {
+  const deleteProductHandler = (id) => {
     dispatch(deleteProduct(id));
   }
 
@@ -68,7 +68,7 @@ const ProductList = () => {
                     <EditIcon />
                 </Link>
                 <Button onClick={() => {
-                    deleteProductHandle(params.getValue(params.id, "id"))}
+                    deleteProductHandler(params.getValue(params.id, "id"))}
                     }
                 >
                     <DeleteIcon />

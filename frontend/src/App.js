@@ -34,6 +34,7 @@ import ProductList from "./component/Admin/ProductList.jsx";
 import NewProduct from "./component/Admin/NewProduct";
 import UpdateProduct from "./component/Admin/UpdateProduct.jsx";
 import OrderList from "./component/Admin/OrderList.jsx";
+import ProcessOrder from "./component/Admin/ProcessOrder.jsx";
 
 function App() {
 
@@ -78,6 +79,7 @@ function App() {
         <Route path='/admin/product' element={<ProtectedRoute isAdmin={true}><NewProduct/></ProtectedRoute>} />
         <Route path='/admin/product/:id' element={<ProtectedRoute isAdmin={true}><UpdateProduct/></ProtectedRoute>} />
         <Route path='/admin/orders' element={<ProtectedRoute isAdmin={true}><OrderList/></ProtectedRoute>} />
+        <Route path='/admin/order/:id' element={<ProtectedRoute isAdmin={true}><ProcessOrder/></ProtectedRoute>} />
         <Route path='/process/payment' element={<Elements stripe={loadStripe(stripeApiKey)}><ProtectedRoute><Payment/></ProtectedRoute></Elements>} />
         <Route path='/password/forgot' element={<ForgotPassword/>} />
         <Route path='/password/reset/:token' element={<ResetPassword/>} />

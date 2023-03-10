@@ -84,7 +84,7 @@ const Payment = () => {
                         },
                     },
                 },
-            }).then(response => console.log(response));
+            });
 
             if(result.error) {
                 payBtn.current.disabled = false;

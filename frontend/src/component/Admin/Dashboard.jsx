@@ -14,6 +14,7 @@ import {
   } from "chart.js";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAdminProducts } from '../../actions/productAction.js';
+import { getAllOrders } from '../../actions/orderAction.js';
   
   ChartJS.register(
     LineElement,
@@ -28,11 +29,13 @@ const Dashboard = () => {
     const dispatch = useDispatch();
 
     const { products } = useSelector((state) => state.products);
+    const { orders } = useSelector((state) => state.allOrders);
 
     let outOfStock = 0;
 
     useEffect(() => {
         dispatch(getAdminProducts());
+        dispatch(getAllOrders());
       }, [dispatch]);
 
     products && 
@@ -82,7 +85,7 @@ const Dashboard = () => {
                     </Link>
                     <Link to="/admin/orders">
                         <p>Orders</p>
-                        <p>4</p>
+                        <p>{orders && orders.length}</p>
                     </Link>
                     <Link to="/admin/users">
                         <p>Users</p>
