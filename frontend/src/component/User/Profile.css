@@ -27,6 +27,7 @@
 
 .profileContainer > div:first-child > img {
     width: 20vmax;
+    height: 20vmax;
     border-radius: 100%;
     transition: all 0.5s;
 }
