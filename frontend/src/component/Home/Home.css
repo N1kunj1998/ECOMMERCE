@@ -71,6 +71,8 @@
     width: 14vmax;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     text-decoration: none;
     color: rgb(48, 48, 48);
     margin: 2vmax;

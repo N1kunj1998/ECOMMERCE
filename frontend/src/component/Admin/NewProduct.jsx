@@ -165,8 +165,8 @@ const NewProduct = () => {
                         <div id='createProductFormFile'>
                             <input
                                 type="file"
-                                name="product"
-                                accept='image/'
+                                name="avatar"
+                                accept='image/*'
                                 multiple
                                 onChange={createProductImageChange}
                             />

@@ -31,7 +31,7 @@ import {
 } from "../constants/productConstant";
 
 // Get All Products
-export const getProduct = (keyword = "", currentPage = 1, price=[0, 25000], category, ratings = 0) => async (dispatch) => {
+export const getProduct = (keyword = "", currentPage = 1, price=[0, 100000], category, ratings = 0) => async (dispatch) => {
   try {
     dispatch({ type: ALL_PRODUCT_REQUEST });
 
@@ -125,6 +125,8 @@ export const createProduct = (productData) => async (dispatch) => {
     const config = {
       headers: { "Content-Type" : "application/json"},
     };
+
+    console.log(productData.get("images"));
 
     const { data } = await axios.post(`/api/v1/admin/product/new`, productData, config);
 
