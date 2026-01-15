@@ -1,16 +1,17 @@
 {
     "version": 2,
-    "name": "ecommerce",
     "buildCommand": "npm run vercel-build",
     "outputDirectory": "frontend/build",
     "installCommand": "npm install",
-    "framework": null,
-    "functions": {
-        "api/index.js": {
-            "runtime": "nodejs24.x",
-            "maxDuration": 30
+    "builds": [
+        {
+            "src": "api/index.js",
+            "use": "@vercel/node",
+            "config": {
+                "maxLambdaSize": "50mb"
+            }
         }
-    },
+    ],
     "rewrites": [
         {
             "source": "/api/v1/(.*)",
