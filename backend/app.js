@@ -1,9 +1,7 @@
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
-const dotenv = require("dotenv");
 const path = require("path");
 
 const errorMiddleware = require("./middleware/error");
@@ -13,11 +11,21 @@ if(process.env.NODE_ENV !== "PRODUCTION"){
     require("dotenv").config({path:"backend/config/config.env"});
 }
 
+// CORS configuration (optional but recommended)
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", process.env.FRONTEND_URL || "http://localhost:3000");
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    if (req.method === "OPTIONS") {
+        return res.sendStatus(200);
+    }
+    next();
+});
+
 app.use(express.json({limit: '500mb'}));
-app.use(express.urlencoded({limit: '500mb'}));
-app.use(express.json());
+app.use(express.urlencoded({limit: '500mb', extended: true}));
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({extended: true}));
 app.use(fileUpload());
 
 // Route Imports

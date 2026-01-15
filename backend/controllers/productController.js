@@ -143,8 +143,7 @@ exports.updateProduct = catchAsyncErrors(
     
         product = await Product.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
-            runValidators: true,
-            useFindAndModify: false,
+            runValidators: true
         });
     
         res.status(200).json({
@@ -263,8 +262,7 @@ exports.deleteReview = catchAsyncErrors(
             numOfReviews
         }, {
             new: true,
-            runValidators: true,
-            useFindAndModify: false,
+            runValidators: true
         });
         res.status(200).json({
             success: true

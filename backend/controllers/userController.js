@@ -219,8 +219,7 @@ exports.updateProfile = catchAsyncErrors(
 
         const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
             new: true,
-            runValidators: true,
-            useFindAndModify: false
+            runValidators: true
         });
 
         res.status(200).json({
@@ -269,8 +268,7 @@ exports.updateUserRole = catchAsyncErrors(
 
         await User.findByIdAndUpdate(req.params.id, newUserData, {
             new: true,
-            runValidators: true,
-            useFindAndModify: false
+            runValidators: true
         });
 
         res.status(200).json({
