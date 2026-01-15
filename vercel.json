@@ -1,6 +1,24 @@
 {
     "version": 2,
     "name": "ecommerce",
-    "builds": [{ "src": "./backend/server.js", "use": "@vercel/node" }],
-    "routes": [{ "src": "/(.*)", "dest": "./backend/server.js" }]
+    "buildCommand": "npm run vercel-build",
+    "outputDirectory": "frontend/build",
+    "installCommand": "npm install",
+    "framework": null,
+    "functions": {
+        "api/index.js": {
+            "runtime": "nodejs24.x",
+            "maxDuration": 30
+        }
+    },
+    "rewrites": [
+        {
+            "source": "/api/v1/(.*)",
+            "destination": "/api/index.js"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
 }

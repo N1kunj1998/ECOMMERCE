@@ -39,11 +39,15 @@ app.use("/api/v1", userRoute);
 app.use("/api/v1", orderRoute);
 app.use("/api/v1", paymentRoute);
 
-app.use(express.static(path.join(__dirname, "../frontend/build")));
-
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
-});
+// Serve static files only in production (for local development)
+// On Vercel, static files are served separately via vercel.json
+if (process.env.NODE_ENV === "PRODUCTION" && !process.env.VERCEL) {
+    app.use(express.static(path.join(__dirname, "../frontend/build")));
+    
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+    });
+}
 
 // Middleware for Errors
 app.use(errorMiddleware);
